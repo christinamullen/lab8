@@ -1,0 +1,17 @@
+:root {
+    --bk-start: #FFFFFF;
+    --tc-start: #212121;
+    --bc-ST: #D5CEB2;
+    --tc-ST: #808080;
+    --bc-BA: #F0C403;
+    --tc-BA: #212121;
+    --bc-LA: #86090A;
+    --tc-LA: #c1ac79;
+    --bc-TA: #212121;
+    --tc-TA: #C21920;
+}
+
+body {
+    background-color: var(--bk-start);
+    color: var(--tc-start);
+}
