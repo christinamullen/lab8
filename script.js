@@ -30,16 +30,20 @@ const getCharacters = houseCode => {
   switch (houseCode) {
     case "ST":
       characters = ["Eddard", "Catelyn", "Robb", "Sansa", "Arya", "Jon Snow"];
+      break;
     case "LA":
       characters = ["Tywin", "Cersei", "Jaime", "Tyrion"];
+      break;
     case "BA":
       characters = ["Robert", "Stannis", "Renly"];
+      break;
     case "TA":
       characters = ["Aerys", "Daenerys", "Viserys"];
+      break;
     default:
       characters = []; // Empty array
   }
-  //Store
+  //Store, must convert string
   localStorage.setItem('characters', JSON.stringify(characters));
   return characters;
 };
@@ -65,9 +69,10 @@ function init() {
   dropdown.addEventListener('change', (e) => {
     console.log(e.target.value);
     const myCode = e.target.value;
-    const myChars = getCharacters(myCode);
+    let myChars = getCharacters(myCode);
     console.log(myChars);
-    
+
+
     let list_item = document.getElementById('characters');
     list_item.innerHTML = '';
     
