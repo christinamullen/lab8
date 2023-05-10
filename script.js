@@ -72,6 +72,15 @@ function init() {
     let myChars = getCharacters(myCode);
     console.log(myChars);
 
+    //if getCharacters returns default (no connection), then retrieve from storage
+    if (myChars.length === 0) {
+        const storedChars = localStorage.getItem('characters');
+        if (storedChars) {
+          myChars = JSON.parse(storedChars);
+          alert(localStorage.getItem('characters'))
+          //need to test 
+        }
+    }
 
     let list_item = document.getElementById('characters');
     list_item.innerHTML = '';
