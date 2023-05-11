@@ -70,6 +70,17 @@ function init() {
     console.log(e.target.value);
     const myCode = e.target.value;
     let myChars = getCharacters(myCode);
+
+    //session storage counter
+    if (sessionStorage.getItem('dropdownCount')) {
+      let currentCount = parseInt(sessionStorage.getItem('dropdownCount'));
+      sessionStorage.setItem('dropdownCount', currentCount + 1);
+    } 
+    //if first time dropdwon is used, then ini to 1
+    else {
+      sessionStorage.setItem('dropdownCount', 1);
+    }
+    console.log('You changed houses ' + sessionStorage.getItem('dropdownCount') + ' times.');
     console.log(myChars);
 
     //if getCharacters returns default (no connection), then retrieve from storage
