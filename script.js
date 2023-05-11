@@ -82,7 +82,7 @@ function init() {
         sessionStorage.setItem('dropdownCount', 1);
       }
       document.getElementById("result").innerHTML =
-      `You changed houses ${sessionStorage.getItem('dropdownCount')} time(s).`;
+      `You selected a house ${sessionStorage.getItem('dropdownCount')} time(s).`;
     }
     else {
       document.getElementById("result").innerHTML =
@@ -90,7 +90,7 @@ function init() {
     } 
 
 
-    console.log('You changed houses ' + sessionStorage.getItem('dropdownCount') + ' times.');
+    console.log('You selected a house ' + sessionStorage.getItem('dropdownCount') + ' times.');
     console.log(myChars);
 
     //if getCharacters returns default (no connection), then retrieve from storage
