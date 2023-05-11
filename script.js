@@ -71,15 +71,25 @@ function init() {
     const myCode = e.target.value;
     let myChars = getCharacters(myCode);
 
-    //session storage counter
-    if (sessionStorage.getItem('dropdownCount')) {
-      let currentCount = parseInt(sessionStorage.getItem('dropdownCount'));
-      sessionStorage.setItem('dropdownCount', currentCount + 1);
-    } 
-    //if first time dropdwon is used, then ini to 1
-    else {
-      sessionStorage.setItem('dropdownCount', 1);
+    if (typeof Storage !== "undefined"){
+          //session storage counter, stored as string, must convert to int
+      if (sessionStorage.getItem('dropdownCount')) {
+        let currentCount = parseInt(sessionStorage.getItem('dropdownCount'));
+        sessionStorage.setItem('dropdownCount', currentCount + 1);
+      } 
+      //if first time dropdwon is used, then ini to 1
+      else {
+        sessionStorage.setItem('dropdownCount', 1);
+      }
+      document.getElementById("result").innerHTML =
+      `You changed houses ${sessionStorage.getItem('dropdownCount')} time(s).`;
     }
+    else {
+      document.getElementById("result").innerHTML =
+        "Sorry, your browser does not support web storage...";
+    } 
+
+
     console.log('You changed houses ' + sessionStorage.getItem('dropdownCount') + ' times.');
     console.log(myChars);
 
